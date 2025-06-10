@@ -1,0 +1,344 @@
+@font-face {
+    font-family: 'PlusJakatraSans';
+    src: url('assets/fonts/static/PlusJakartaSans-Medium.ttf') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PlusJakatraSans';
+    src: url('assets/fonts/static/PlusJakartaSans-ExtraBold.ttf') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+:where(ul, ol):where([class]) {
+    padding-left: 0;
+}
+
+body,
+:where(blockquote, figure):where([class]) {
+    margin: 0;
+}
+
+:where(h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    ul,
+    ol,
+    dl):where([class]) {
+    margin-block: 0;
+}
+
+:where(dd[class]) {
+    margin-left: 0;
+}
+
+:where(fieldset[class]) {
+    margin-left: 0;
+    padding: 0;
+    border: none;
+}
+
+:where(ul[class]) {
+    list-style: none;
+}
+
+:where(address[class]) {
+    font-style: normal;
+}
+
+p {
+    --paragraphMarginBottom: 24px;
+
+    margin-block: 0;
+}
+
+p:where(:not([class]):not(:last-child)) {
+    margin-bottom: var(--paragraphMarginBottom);
+}
+
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+input,
+textarea,
+select,
+button {
+    font: inherit;
+}
+
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    color: inherit; 
+    cursor: pointer; 
+  }
+
+html {
+    height: 100%;
+    scrollbar-gutter: stable;
+}
+
+html,
+:has(:target) {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'PlusJakatraSans';
+    min-height: 100%;
+    background-color: var(--color-very-light-blue);
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+a:where([class]) {
+    display: inline-flex;
+}
+
+button,
+label {
+    cursor: pointer;
+}
+
+[fill] {
+    fill: currentColor
+}
+
+[stroke] {
+    stroke: currentColor
+}
+
+svg * {
+    transition-property: fill, stroke;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    ::before,
+    ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+:root {
+    --color-light: hsl(0, 0%, 100%);
+    --color-very-light-blue: hsl(210, 60%, 98%);
+    --color-light-blue-1: hsl(211, 68%, 94%);
+    --color-light-blue-2: hsl(205, 33%, 90%);
+    --color-gray-blue: hsl(219, 14%, 63%);
+    --color-dark-gray-blue: hsl(219, 12%, 42%);
+    --color-dark-blue: hsl(224, 21%, 14%);
+    --color-red: #FF5500;
+    --color-blue: hsl(219, 85%, 26%);
+
+    --border: 1px solid #959b99;
+    --border-hover: 1px solid var(--color-dark-gray-blue);
+}
+
+.visually-hidden {
+    display: none;
+}
+
+.list-item {
+    display: flex;
+    margin-block: 10px; 
+    gap: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.unread {
+    background-color: var(--color-light-blue-1);
+}
+
+.unread-indicator {
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-red); 
+    border-radius: 50%;
+}
+
+.notifications-menu {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-light);
+    padding: 20px 50px;
+    max-width: 800px;
+    margin: auto;
+    border-radius: 20px;
+}
+
+.notifications-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 30px;
+    gap: 50px;
+}
+
+.notifications-counter {
+    font-size: 20px;
+    color: var(--color-light);
+    padding: 4px 15px;
+    background-color: var(--color-blue);
+    border-radius: 5px;
+}
+
+.notification-card {
+    display: grid;
+    gap: 5px;
+}
+
+.notification-avatar {
+    min-width: 80px;
+}
+
+.notification-avatar img {
+    width: 60px;
+}
+
+
+.notification-object {
+    position: relative; 
+    display: inline-block; 
+}
+  
+li.unread .notification-object::after {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-red);
+    border-radius: 50%;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.notification-nickname,
+.notification-object {
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.notification-nickname:hover,
+.notification-object:hover {
+    color: var(--color-blue);
+}
+
+.notification-object.private-message:hover {
+    background-color: var(--color-light-blue-1);
+    border: 1px solid var(--color-light-blue-1);
+    color: var(--color-blue);
+    cursor: pointer;
+}
+
+.notification-nickname {
+    color: var(--color-dark-blue);
+}
+
+.notification-object {
+    color: var(--color-blue);
+}
+
+.private-message-block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.notification-object.private-message {
+    padding: 16px 20px;
+    border: var(--border);
+    border-radius: 5px;
+    color: var(--color-dark-blue);
+    font-weight: 400;
+}
+
+.notification-time {
+    color: var(--color-dark-gray-blue);
+}
+
+.notification-card {
+    flex: 1;
+}
+
+.notification-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+@media (max-width: 516px) {
+    body {
+        font-size: 12px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .list-item {
+        gap: 5px;
+    }
+
+    .notifications-menu {
+        padding: 10px 20px;
+    }
+
+    .notifications-header {
+        padding-block: 15px;
+    }
+
+    .notifications-counter {
+        font-size: 15px;
+        padding: 3px 12px;
+    }
+
+    .notification-avatar {
+        min-width: 60px;
+    }
+
+    .notification-avatar img {
+        width: 45px;
+    }
+
+    .notification-object.private-message {
+        padding: 8px 10px;
+        border: var(--border);
+        border-radius: 5px;
+        color: var(--color-dark-blue);
+        font-weight: 400;
+    }
+
+    .notification-image {
+        width: 40px;
+        height: 40px;
+    }
+}
